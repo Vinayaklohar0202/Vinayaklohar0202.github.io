@@ -8,40 +8,40 @@ $(function () {
 /*=========================================================================
     Burger Menu
 =========================================================================*/    
-    var burgerMenu = function () {
-        $('.js-addo-nav-toggle').on('click', function (event) {
-            event.preventDefault();
-            var $this = $(this);
-            if ($('body').hasClass('offcanvas')) {
-                $this.removeClass('active');
-                $('body').removeClass('offcanvas');
-            }
-            else {
-                $this.addClass('active');
-                $('body').addClass('offcanvas');
-            }
-        });
-    };
+var burgerMenu = function () {
+    $('.js-addo-nav-toggle').on('click', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+        if ($('body').hasClass('offcanvas')) {
+            $this.removeClass('active');
+            $('body').removeClass('offcanvas');
+        }
+        else {
+            $this.addClass('active');
+            $('body').addClass('offcanvas');
+        }
+    });
+};
 
-    // Click outside of offcanvass
-    var mobileMenuOutsideClick = function () {
-        $(document).click(function (e) {
-            var container = $("#addo-aside, .js-addo-nav-toggle");
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                if ($('body').hasClass('offcanvas')) {
-                    $('body').removeClass('offcanvas');
-                    $('.js-addo-nav-toggle').removeClass('active');
-                }
-            }
-        });
-        $(window).scroll(function () {
+// Click outside of offcanvass
+var mobileMenuOutsideClick = function () {
+    $(document).click(function (e) {
+        var container = $("#addo-aside, .js-addo-nav-toggle");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
             if ($('body').hasClass('offcanvas')) {
                 $('body').removeClass('offcanvas');
                 $('.js-addo-nav-toggle').removeClass('active');
             }
-        });
-    };
-    var wind = $(window);
+        }
+    });
+    $(window).scroll(function () {
+        if ($('body').hasClass('offcanvas')) {
+            $('body').removeClass('offcanvas');
+            $('.js-addo-nav-toggle').removeClass('active');
+        }
+    });
+};
+var wind = $(window);
 
 /*=========================================================================
     Typed js Active
